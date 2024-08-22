@@ -19,6 +19,9 @@ type Circuit struct {
 	Result frontend.Variable `gnark:",public"`
 }
 
+// / expander compiler optimized this circuit, it is not the same as my fibonacci
+// / we need to write eache intermediate value as frontend variable if we want to genetate the same circuit
+// as expander compiler reuses the same gate to represent different rounds, but modify the coef of the gate
 func (circuit *Circuit) Define(api frontend.API) error {
 	var rounds int = 2
 
